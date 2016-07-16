@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://com/" xmlns:ns1="http://jaxb.dev.java.net/array" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://com/">
+
+<xs:import namespace="http://jaxb.dev.java.net/array" schemaLocation="http://localhost:8080/chessServer/objCellMatrix?xsd=1"/>
+
+<xs:element name="checkWinner" type="tns:checkWinner"/>
+
+<xs:element name="checkWinnerResponse" type="tns:checkWinnerResponse"/>
+
+<xs:element name="getPieceCell" type="tns:getPieceCell"/>
+
+<xs:element name="getPieceCellResponse" type="tns:getPieceCellResponse"/>
+
+<xs:element name="getPieceMatrix" type="tns:getPieceMatrix"/>
+
+<xs:element name="getPieceMatrixResponse" type="tns:getPieceMatrixResponse"/>
+
+<xs:element name="getPlayerCell" type="tns:getPlayerCell"/>
+
+<xs:element name="getPlayerCellResponse" type="tns:getPlayerCellResponse"/>
+
+<xs:element name="getPlayerMatrix" type="tns:getPlayerMatrix"/>
+
+<xs:element name="getPlayerMatrixResponse" type="tns:getPlayerMatrixResponse"/>
+
+<xs:element name="objCellMatrix" type="tns:objCellMatrix"/>
+
+<xs:element name="objCellMatrixResponse" type="tns:objCellMatrixResponse"/>
+
+<xs:element name="resetMatrix" type="tns:resetMatrix"/>
+
+<xs:element name="resetMatrixResponse" type="tns:resetMatrixResponse"/>
+
+<xs:element name="setPieceCell" type="tns:setPieceCell"/>
+
+<xs:element name="setPieceCellResponse" type="tns:setPieceCellResponse"/>
+
+<xs:element name="setPlayerCell" type="tns:setPlayerCell"/>
+
+<xs:element name="setPlayerCellResponse" type="tns:setPlayerCellResponse"/>
+
+<xs:complexType name="resetMatrix">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="resetMatrixResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getPlayerMatrix">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getPlayerMatrixResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:intArray" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPlayerCell">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPlayerCellResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setPlayerCell">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:int"/>
+<xs:element name="arg2" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setPlayerCellResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="setPieceCell">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:int"/>
+<xs:element name="arg2" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="setPieceCellResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="checkWinner">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkWinnerResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPieceCell">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPieceCellResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="objCellMatrix">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="objCellMatrixResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getPieceMatrix">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getPieceMatrixResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:intArray" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
