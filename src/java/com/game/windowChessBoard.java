@@ -22,14 +22,16 @@ public class windowChessBoard extends objChessBoard implements MouseListener, Mo
     private int startingX = 0, startingY = 0, currentX = 0, currentY = 0, refreshCounter = 0;
     private boolean firstTime = true, hasWon = false, isDragging = false;
 	
+    long startAllocateTime = System.currentTimeMillis();
     com.ObjCellMatrix_Service matrix_service = new com.ObjCellMatrix_Service();
     com.ObjCellMatrix cellMatrix = matrix_service.getObjCellMatrixPort();
+    
         
     com.ObjPawn_Service pawn_service = new com.ObjPawn_Service();
     com.ObjPawn pawnObject = pawn_service.getObjPawnPort();
-    
-    com.ObjRock_Service rock_service = new com.ObjRock_Service();
-    com.ObjRock rockObject = rock_service.getObjRockPort();
+   
+    com.ObjRook_Service rock_service = new com.ObjRook_Service();
+    com.ObjRook rockObject = rock_service.getObjRookPort();
         
     com.ObjKnight_Service knight_service = new com.ObjKnight_Service();
     com.ObjKnight knightObject = knight_service.getObjKnightPort();
@@ -47,6 +49,7 @@ public class windowChessBoard extends objChessBoard implements MouseListener, Mo
     {
 	this.addMouseListener(this);
 	this.addMouseMotionListener(this);
+        
     }
 	
     private String getPlayerMsg ()
@@ -283,6 +286,14 @@ public class windowChessBoard extends objChessBoard implements MouseListener, Mo
 	
             unsucessfullDrag(desRow, desColumn);
 	}
+        long endAllocateTime = System.currentTimeMillis();
+        long allocation = endAllocateTime - startAllocateTime;
+
+            double allocate1 = (double)allocation  / 1000000000.0;
+            System.out.println("Time to display frame ... ");
+            System.out.println("Time to invoke service :" + allocate1 +"seconds");
+            System.out.format(" Time to invoke service : %f Seconds \n",allocate1 );
+
     }
 	
     private void unsucessfullDrag (int desRow, int desColumn)
@@ -400,4 +411,7 @@ public class windowChessBoard extends objChessBoard implements MouseListener, Mo
     {
 	repaint();	
     }
+
+    
+    
 }

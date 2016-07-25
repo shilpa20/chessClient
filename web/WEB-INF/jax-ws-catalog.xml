@@ -33,4 +33,7 @@
     <system systemId="http://localhost:8080/chessServer/objKnight?WSDL" uri="wsdl/localhost_8080/chessServer/objKnight.wsdl"/>
     <system systemId="http://localhost:8080/chessServer/objBishop?WSDL" uri="wsdl/localhost_8080/chessServer/objBishop.wsdl"/>
     <system systemId="http://localhost:8080/chessServer/objKing?WSDL" uri="wsdl/localhost_8080/chessServer/objKing.wsdl"/>
+    <system systemId="http://localhost:8080/chessServer/objRook?WSDL" uri="wsdl/localhost_8080/chessServer/objRook.wsdl"/>
+    <system systemId="http://localhost:8080/chessServer/objRook?xsd=1" uri="wsdl/localhost_8080/chessServer/objRook.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/chessServer/objRook?xsd=2" uri="wsdl/localhost_8080/chessServer/objRook.xsd_2.xsd"/>
 </catalog>

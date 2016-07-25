@@ -91,22 +91,6 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/com"/>
         <delete dir="${build.generated.dir}/jax-wsCache/objPawn"/>
     </target>
-    <target name="wsimport-client-objRock" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/objRock"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/objRock" destdir="${build.generated.dir}/jax-wsCache/objRock" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/objRock/wsdl/localhost_8080/chessServer/objRock.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/chessServer/objRock?WSDL" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/objRock/wsdl/localhost_8080/chessServer/objRock.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/objRock"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/objRock">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-objRock" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/com"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/objRock"/>
-    </target>
     <target name="wsimport-client-objKnight" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/objKnight"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/objKnight" destdir="${build.generated.dir}/jax-wsCache/objKnight" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/objKnight/wsdl/localhost_8080/chessServer/objKnight.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/chessServer/objKnight?WSDL" xnocompile="true" xendorsed="true">
@@ -155,5 +139,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/com"/>
         <delete dir="${build.generated.dir}/jax-wsCache/objKing"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-objCellMatrix, wsimport-client-objQueen, wsimport-client-objPawn, wsimport-client-objRock, wsimport-client-objKnight, wsimport-client-objBishop, wsimport-client-objKing"/>
+    <target name="wsimport-client-objRook" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/objRook"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/objRook" destdir="${build.generated.dir}/jax-wsCache/objRook" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/objRook/wsdl/localhost_8080/chessServer/objRook.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/chessServer/objRook?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/objRook/wsdl/localhost_8080/chessServer/objRook.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/objRook"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/objRook">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-objRook" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/com"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/objRook"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-objCellMatrix, wsimport-client-objQueen, wsimport-client-objPawn, wsimport-client-objKnight, wsimport-client-objBishop, wsimport-client-objKing, wsimport-client-objRook"/>
 </project>
