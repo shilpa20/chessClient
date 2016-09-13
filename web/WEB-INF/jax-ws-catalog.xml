@@ -36,4 +36,9 @@
     <system systemId="http://localhost:8080/chessServer/objRook?WSDL" uri="wsdl/localhost_8080/chessServer/objRook.wsdl"/>
     <system systemId="http://localhost:8080/chessServer/objRook?xsd=1" uri="wsdl/localhost_8080/chessServer/objRook.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/chessServer/objRook?xsd=2" uri="wsdl/localhost_8080/chessServer/objRook.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/chessServer/objChessPieces?WSDL" uri="wsdl/localhost_8080/chessServer/objChessPieces.wsdl"/>
+    <system systemId="http://localhost:8080/chessServer/objChessPieces?xsd=1" uri="wsdl/localhost_8080/chessServer/objChessPieces.xsd_1.xsd"/>
+    <system systemId="http://shilpa:8080/chessServer/objRook?WSDL" uri="wsdl/shilpa_8080/chessServer/objRook.wsdl"/>
+    <system systemId="http://shilpa:8080/chessServer/objRook?xsd=1" uri="wsdl/shilpa_8080/chessServer/objRook.xsd_1.xsd"/>
+    <system systemId="http://shilpa:8080/chessServer/objRook?xsd=2" uri="wsdl/shilpa_8080/chessServer/objRook.xsd_2.xsd"/>
 </catalog>

@@ -10,23 +10,6 @@
                 JAX-WS WSGEN SECTION
                 ===================
             -->
-    <target name="wsgen-init" depends="init, -do-compile">
-        <mkdir dir="${build.generated.sources.dir}/jax-ws/resources/"/>
-        <mkdir dir="${build.classes.dir}"/>
-        <mkdir dir="${build.classes.dir}/META-INF"/>
-        <property name="j2ee.platform.wsgen.classpath" value="${libs.jaxws21.classpath}"/>
-        <taskdef name="wsgen" classname="com.sun.tools.ws.ant.WsGen">
-            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
-        </taskdef>
-    </target>
-    <target name="wsgen-objChessPieces" depends="wsgen-init">
-        <copy todir="${build.classes.dir}/META-INF">
-            <fileset dir="${webinf.dir}" includes="wsit-com.game.objChessPieces.xml"/>
-        </copy>
-        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="com.game.objChessPieces" xendorsed="true">
-            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
-        </wsgen>
-    </target>
     <!--
                 ===================
                 JAX-WS WSIMPORT SECTION
@@ -74,22 +57,6 @@
     <target name="wsimport-client-clean-objQueen" depends="-init-project">
         <delete dir="${build.generated.sources.dir}/jax-ws/com"/>
         <delete dir="${build.generated.dir}/jax-wsCache/objQueen"/>
-    </target>
-    <target name="wsimport-client-objPawn" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/objPawn"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/objPawn" destdir="${build.generated.dir}/jax-wsCache/objPawn" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/objPawn/wsdl/localhost_8080/chessServer/objPawn.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/chessServer/objPawn?WSDL" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/objPawn/wsdl/localhost_8080/chessServer/objPawn.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/objPawn"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/objPawn">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-objPawn" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/com"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/objPawn"/>
     </target>
     <target name="wsimport-client-objKnight" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/objKnight"/>
@@ -139,10 +106,42 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/com"/>
         <delete dir="${build.generated.dir}/jax-wsCache/objKing"/>
     </target>
+    <target name="wsimport-client-objChessPieces" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/objChessPieces"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/objChessPieces" destdir="${build.generated.dir}/jax-wsCache/objChessPieces" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/objChessPieces/wsdl/localhost_8080/chessServer/objChessPieces.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/chessServer/objChessPieces?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/objChessPieces/wsdl/localhost_8080/chessServer/objChessPieces.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/objChessPieces"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/objChessPieces">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-objChessPieces" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/com"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/objChessPieces"/>
+    </target>
+    <target name="wsimport-client-objPawn" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/objPawn"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/objPawn" destdir="${build.generated.dir}/jax-wsCache/objPawn" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/objPawn/wsdl/localhost_8080/chessServer/objPawn.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/chessServer/objPawn?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/objPawn/wsdl/localhost_8080/chessServer/objPawn.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/objPawn"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/objPawn">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-objPawn" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/comm"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/objPawn"/>
+    </target>
     <target name="wsimport-client-objRook" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/objRook"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/objRook" destdir="${build.generated.dir}/jax-wsCache/objRook" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/objRook/wsdl/localhost_8080/chessServer/objRook.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/chessServer/objRook?WSDL" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/objRook/wsdl/localhost_8080/chessServer/objRook.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/objRook" destdir="${build.generated.dir}/jax-wsCache/objRook" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/objRook/wsdl/shilpa_8080/chessServer/objRook.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://shilpa:8080/chessServer/objRook?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/objRook/wsdl/shilpa_8080/chessServer/objRook.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/objRook"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
@@ -155,5 +154,5 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/com"/>
         <delete dir="${build.generated.dir}/jax-wsCache/objRook"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-objCellMatrix, wsimport-client-objQueen, wsimport-client-objPawn, wsimport-client-objKnight, wsimport-client-objBishop, wsimport-client-objKing, wsimport-client-objRook"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-objCellMatrix, wsimport-client-objQueen, wsimport-client-objKnight, wsimport-client-objBishop, wsimport-client-objKing, wsimport-client-objChessPieces, wsimport-client-objPawn, wsimport-client-objRook"/>
 </project>

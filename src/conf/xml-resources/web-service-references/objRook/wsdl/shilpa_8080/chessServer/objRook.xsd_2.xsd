@@ -1,6 +1,6 @@
-<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://comm/" xmlns:ns1="http://jaxb.dev.java.net/array" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://comm/">
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://com/" xmlns:ns1="http://jaxb.dev.java.net/array" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://com/">
 
-<xs:import namespace="http://jaxb.dev.java.net/array" schemaLocation="http://localhost:8080/chessServer/objPawn?xsd=1"/>
+<xs:import namespace="http://jaxb.dev.java.net/array" schemaLocation="http://shilpa:8080/chessServer/objRook?xsd=1"/>
 
 <xs:element name="getDesColumn" type="tns:getDesColumn"/>
 
@@ -18,9 +18,9 @@
 
 <xs:element name="legalMoveResponse" type="tns:legalMoveResponse"/>
 
-<xs:element name="objPawn" type="tns:objPawn"/>
+<xs:element name="objRock" type="tns:objRock"/>
 
-<xs:element name="objPawnResponse" type="tns:objPawnResponse"/>
+<xs:element name="objRockResponse" type="tns:objRockResponse"/>
 
 <xs:complexType name="legalMove">
 <xs:sequence>
@@ -29,7 +29,6 @@
 <xs:element name="arg2" type="xs:int"/>
 <xs:element name="arg3" type="xs:int"/>
 <xs:element name="arg4" type="ns1:intArray" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
-<xs:element name="arg5" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -37,6 +36,14 @@
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="objRock">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="objRockResponse">
+<xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="getDesColumn">
@@ -47,14 +54,6 @@
 <xs:sequence>
 <xs:element name="return" type="xs:int"/>
 </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="objPawn">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="objPawnResponse">
-<xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="getErrorMsg">

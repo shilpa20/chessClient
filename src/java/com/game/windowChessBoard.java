@@ -2,6 +2,8 @@ package com.game;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JDialog;
 
@@ -22,13 +24,15 @@ public class windowChessBoard extends objChessBoard implements MouseListener, Mo
     private int startingX = 0, startingY = 0, currentX = 0, currentY = 0, refreshCounter = 0;
     private boolean firstTime = true, hasWon = false, isDragging = false;
 	
-    long startAllocateTime = System.currentTimeMillis();
+    long startTime = System.currentTimeMillis();
+   
+   
     com.ObjCellMatrix_Service matrix_service = new com.ObjCellMatrix_Service();
     com.ObjCellMatrix cellMatrix = matrix_service.getObjCellMatrixPort();
     
         
-    com.ObjPawn_Service pawn_service = new com.ObjPawn_Service();
-    com.ObjPawn pawnObject = pawn_service.getObjPawnPort();
+    comm.ObjPawn_Service pawn_service = new comm.ObjPawn_Service();
+    comm.ObjPawn pawnObject = pawn_service.getObjPawnPort();
    
     com.ObjRook_Service rock_service = new com.ObjRook_Service();
     com.ObjRook rockObject = rock_service.getObjRookPort();
@@ -45,6 +49,9 @@ public class windowChessBoard extends objChessBoard implements MouseListener, Mo
     com.ObjKing_Service king_service = new com.ObjKing_Service();
     com.ObjKing kingObject = king_service.getObjKingPort();
         
+    time t = new time();
+    long sleeptime = 4000;
+    
     public windowChessBoard ()
     {
 	this.addMouseListener(this);
@@ -147,6 +154,7 @@ public class windowChessBoard extends objChessBoard implements MouseListener, Mo
 	
     private void checkMove (int desRow, int desColumn)
     {
+       
 	boolean legalMove = false;
 	
         if (cellMatrix.getPlayerCell(desRow,desColumn) == currentPlayer)
@@ -159,16 +167,16 @@ public class windowChessBoard extends objChessBoard implements MouseListener, Mo
             switch (pieceBeingDragged)
             {
 		case 0: legalMove = pawnObject.legalMove(startRow, startColumn, desRow, desColumn, cellMatrix.getPlayerMatrix(), currentPlayer);
+            	break;
+                case 1: legalMove = rockObject.legalMove(startRow, startColumn, desRow, desColumn, cellMatrix.getPlayerMatrix());
 			break;
-                case 1: legalMove = rockObject.legalMove(startRow, startColumn, desRow, desColumn, cellMatrix.getPlayerMatrix(),currentX);
+                case 2: legalMove = knightObject.legalMove(startRow, startColumn, desRow, desColumn, cellMatrix.getPlayerMatrix());
 			break;
-                case 2: legalMove = knightObject.legalMove(startRow, startColumn, desRow, desColumn, cellMatrix.getPlayerMatrix(),currentX);
+		case 3: legalMove = bishopObject.legalMove(startRow, startColumn, desRow, desColumn, cellMatrix.getPlayerMatrix());
 			break;
-		case 3: legalMove = bishopObject.legalMove(startRow, startColumn, desRow, desColumn, cellMatrix.getPlayerMatrix(),currentX);
+		case 4: legalMove = queenObject.legalMove(startRow, startColumn, desRow, desColumn, cellMatrix.getPlayerMatrix());
 			break;
-		case 4: legalMove = queenObject.legalMove(startRow, startColumn, desRow, desColumn, cellMatrix.getPlayerMatrix(),currentX);
-			break;
-		case 5: legalMove = kingObject.legalMove(startRow, startColumn, desRow, desColumn, cellMatrix.getPlayerMatrix(),currentX);
+		case 5: legalMove = kingObject.legalMove(startRow, startColumn, desRow, desColumn, cellMatrix.getPlayerMatrix());
                         break;
             }
 	}				
@@ -286,14 +294,15 @@ public class windowChessBoard extends objChessBoard implements MouseListener, Mo
 	
             unsucessfullDrag(desRow, desColumn);
 	}
-        long endAllocateTime = System.currentTimeMillis();
-        long allocation = endAllocateTime - startAllocateTime;
-
-            double allocate1 = (double)allocation  / 1000000000.0;
-            System.out.println("Time to display frame ... ");
-            System.out.println("Time to invoke service :" + allocate1 +"seconds");
-            System.out.format(" Time to invoke service : %f Seconds \n",allocate1 );
-
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(windowChessBoard.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        long endTime = System.currentTimeMillis() ;
+        long duration = (endTime - startTime);  
+        System.out.format("Milli = %s, ( S_Start : %s, S_End : %s ) \n", duration, startTime, endTime );
+        System.out.println("Human-Readable format : "+t.millisToShortDHMS( duration ) );
     }
 	
     private void unsucessfullDrag (int desRow, int desColumn)
@@ -411,6 +420,8 @@ public class windowChessBoard extends objChessBoard implements MouseListener, Mo
     {
 	repaint();	
     }
+
+   
 
     
     

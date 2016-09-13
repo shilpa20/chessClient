@@ -1,6 +1,5 @@
 package com.game;
 
-import java.awt.GraphicsEnvironment;
 import javax.swing.JFrame;
 
 /**
@@ -26,14 +25,12 @@ public class chess
         frame.setVisible(true);  
         frame.pack();  
         System.out.println("time");
+        time t = new time();
          
          long endAllocateTime = System.currentTimeMillis();
-         long allocation = endAllocateTime - startAllocateTime;
-
-            double allocate = (double)allocation  / 1000000000.0;
-           System.out.println("Time to display frame ... ");
-            System.out.println("Time :" + allocate +"seconds");
-            System.out.format(" Time : %f Seconds \n",allocate );
+        long duration = (endAllocateTime - startAllocateTime);  
+        System.out.format("Milli = %s, ( S_Start : %s, S_End : %s ) \n", duration, startAllocateTime, endAllocateTime );
+        System.out.println("Human-Readable format : "+t.millisToShortDHMS( duration ) );
 
 
          

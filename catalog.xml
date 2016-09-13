@@ -13,9 +13,6 @@
     <system systemId="http://localhost:8080/chessServer/objQueen?WSDL" uri="src/conf/xml-resources/web-service-references/objQueen/wsdl/localhost_8080/chessServer/objQueen.wsdl"/>
     <system systemId="http://localhost:8080/chessServer/objQueen?xsd=1" uri="src/conf/xml-resources/web-service-references/objQueen/wsdl/localhost_8080/chessServer/objQueen.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/chessServer/objQueen?xsd=2" uri="src/conf/xml-resources/web-service-references/objQueen/wsdl/localhost_8080/chessServer/objQueen.xsd_2.xsd"/>
-    <system systemId="http://localhost:8080/chessServer/objPawn?WSDL" uri="src/conf/xml-resources/web-service-references/objPawn/wsdl/localhost_8080/chessServer/objPawn.wsdl"/>
-    <system systemId="http://localhost:8080/chessServer/objPawn?xsd=1" uri="src/conf/xml-resources/web-service-references/objPawn/wsdl/localhost_8080/chessServer/objPawn.xsd_1.xsd"/>
-    <system systemId="http://localhost:8080/chessServer/objPawn?xsd=2" uri="src/conf/xml-resources/web-service-references/objPawn/wsdl/localhost_8080/chessServer/objPawn.xsd_2.xsd"/>
     <system systemId="http://localhost:8080/chessServer/objChessBoard?WSDL" uri="src/conf/xml-resources/web-service-references/objChessBoard/wsdl/localhost_8080/chessServer/objChessBoard.wsdl"/>
     <system systemId="http://localhost:8080/chessServer/objChessBoard?xsd=1" uri="src/conf/xml-resources/web-service-references/objChessBoard/wsdl/localhost_8080/chessServer/objChessBoard.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/chessServer/objRock?WSDL" uri="src/conf/xml-resources/web-service-references/objRock/wsdl/localhost_8080/chessServer/objRock.wsdl"/>
@@ -36,4 +33,12 @@
     <system systemId="http://localhost:8080/chessServer/objRook?WSDL" uri="src/conf/xml-resources/web-service-references/objRook/wsdl/localhost_8080/chessServer/objRook.wsdl"/>
     <system systemId="http://localhost:8080/chessServer/objRook?xsd=1" uri="src/conf/xml-resources/web-service-references/objRook/wsdl/localhost_8080/chessServer/objRook.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/chessServer/objRook?xsd=2" uri="src/conf/xml-resources/web-service-references/objRook/wsdl/localhost_8080/chessServer/objRook.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/chessServer/objChessPieces?WSDL" uri="src/conf/xml-resources/web-service-references/objChessPieces/wsdl/localhost_8080/chessServer/objChessPieces.wsdl"/>
+    <system systemId="http://localhost:8080/chessServer/objChessPieces?xsd=1" uri="src/conf/xml-resources/web-service-references/objChessPieces/wsdl/localhost_8080/chessServer/objChessPieces.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/chessServer/objPawn?WSDL" uri="src/conf/xml-resources/web-service-references/objPawn/wsdl/localhost_8080/chessServer/objPawn.wsdl"/>
+    <system systemId="http://localhost:8080/chessServer/objPawn?xsd=1" uri="src/conf/xml-resources/web-service-references/objPawn/wsdl/localhost_8080/chessServer/objPawn.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/chessServer/objPawn?xsd=2" uri="src/conf/xml-resources/web-service-references/objPawn/wsdl/localhost_8080/chessServer/objPawn.xsd_2.xsd"/>
+    <system systemId="http://shilpa:8080/chessServer/objRook?WSDL" uri="src/conf/xml-resources/web-service-references/objRook/wsdl/shilpa_8080/chessServer/objRook.wsdl"/>
+    <system systemId="http://shilpa:8080/chessServer/objRook?xsd=1" uri="src/conf/xml-resources/web-service-references/objRook/wsdl/shilpa_8080/chessServer/objRook.xsd_1.xsd"/>
+    <system systemId="http://shilpa:8080/chessServer/objRook?xsd=2" uri="src/conf/xml-resources/web-service-references/objRook/wsdl/shilpa_8080/chessServer/objRook.xsd_2.xsd"/>
 </catalog>
